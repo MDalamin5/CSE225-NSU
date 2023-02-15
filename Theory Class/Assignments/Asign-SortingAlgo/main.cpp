@@ -34,7 +34,7 @@ int main()
     cout<<"Time required for Selection Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
 
     start_t=clock();
-   // bubbleSort(array);
+   // mergeSort();
     end_t=clock();
     cout<<"Time required for Bubble Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
 
