@@ -3,10 +3,11 @@ using namespace std;
 void bubbleSort(int arr[]);
 void insertionSort(int arr[]);
 void selectionSort(int arr[]);
-void mergeSort();
+void MergeSort(int arr[],int begin,int end);
+void Merge(int arr[],int left,int mid,int right);
 void printArray(int arr[]);
 
-#define size 50000
+#define size 200000
 int main()
 {
     clock_t start_t,end_t;
@@ -18,13 +19,12 @@ int main()
     }
     
     start_t=clock();
-   // bubbleSort(array);
+    //bubbleSort(array);
     end_t=clock();
     cout<<"Time required for Bubble Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
     
     start_t=clock();
     //insertionSort(array);
-    //printArray(array);
     end_t=clock();
     cout<<"Time required for Insertion Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
 
@@ -34,11 +34,11 @@ int main()
     cout<<"Time required for Selection Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
 
     start_t=clock();
-   // mergeSort();
+    MergeSort(array,0,size-1);
     end_t=clock();
-    cout<<"Time required for Bubble Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
+    cout<<"Time required for Merge Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
 
-    //printArray(array);
+   // printArray(array);
 }
 //User Define Function.
 void bubbleSort(int arr[])
@@ -97,8 +97,62 @@ void selectionSort(int arr[])
         }
     }
 }
-void mergeSort()
+void MergeSort(int arr[],int begin,int end)
 {
+   if(begin>=end)
+    return;
+
+    int mid=begin+(end-begin)/2;
+    MergeSort(arr,begin,mid);
+    MergeSort(arr,mid+1,end);
+    Merge(arr,begin,mid,end);
+}
+void Merge(int arr[],int left,int mid,int right)
+{
+   int subArrayOne= mid-left+1;
+   int subArrayTwo= right-mid;
+   int *Larray= new int [subArrayOne];
+   int *Rarry= new int [subArrayTwo];
+
+   for(int i=0;i<subArrayOne;i++)
+   {
+    Larray[i]=arr[left+i];
+   }
+   for(int j=0;j<subArrayTwo;j++)
+   {
+    Rarry[j]=arr[mid+1+j];
+   }
+
+int indexOfSubArrayOne=0,indexOfSubArrayTwo=0;
+int indexOfMergedArray=left;
+while(indexOfSubArrayOne<subArrayOne && indexOfSubArrayTwo<subArrayTwo)
+{
+    if(Larray[indexOfSubArrayOne]<=Rarry[indexOfSubArrayTwo])
+    {
+        arr[indexOfMergedArray]=Larray[indexOfSubArrayOne];
+        indexOfSubArrayOne++;
+    }
+    else
+    {
+        arr[indexOfMergedArray]=Rarry[indexOfSubArrayTwo];
+        indexOfSubArrayTwo++;
+    }
+    indexOfMergedArray++;
+}
+while(indexOfSubArrayOne<subArrayOne)
+{
+    arr[indexOfMergedArray]=Larray[indexOfSubArrayOne];
+    indexOfMergedArray++;
+    indexOfSubArrayOne++;
+}
+while(indexOfSubArrayTwo<subArrayTwo)
+{
+    arr[indexOfMergedArray]=Rarry[indexOfSubArrayTwo];
+    indexOfMergedArray++;
+    indexOfSubArrayTwo++;
+}
+delete [] Larray;
+delete [] Rarry;
 
 }
 void printArray(int arr[])

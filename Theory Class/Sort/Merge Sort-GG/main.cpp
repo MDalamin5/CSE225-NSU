@@ -22,57 +22,62 @@ void MergeSort(int arr[],int begin,int end)
     MergeSort(arr,begin,mid);
     MergeSort(arr,mid+1,end);
     Merge(arr,begin,mid,end);
-    //cout<<"Hi sort call"<<endl;
+    
 
 }
 void Merge(int arr[],int left,int mid,int right)
 {
-    //cout<<"hello i'm marge loop"<<endl;
-    int ar1=mid-left+1;
-    int ar2=right-mid;
+   int subArrayOne= mid-left+1;
+   int subArrayTwo= right-mid;
+   int *Larray= new int [subArrayOne];
+   int *Rarry= new int [subArrayTwo];
 
-    int subArr1[ar1];
-    int subArr2[ar2];
-    for(int i=0;i<ar1;i++)
-    {
-        subArr1[i]=arr[i];
-    }
-    for(int i=ar1,j=0;i<right+1;i++)
-    {
-        subArr2[j++]=arr[i];
-    }
-    //printArray(subArr1,ar1);
-    //printArray(subArr2,ar2);
+   for(int i=0;i<subArrayOne;i++)
+   {
+    Larray[i]=arr[left+i];
+   }
+   for(int j=0;j<subArrayTwo;j++)
+   {
+    Rarry[j]=arr[mid+1+j];
+   }
 
-    int indx1=0,indx2=0;
-    for(int i=0;i<right+1;i++)
+int indexOfSubArrayOne=0,indexOfSubArrayTwo=0;
+int indexOfMergedArray=left;
+while(indexOfSubArrayOne<subArrayOne && indexOfSubArrayTwo<subArrayTwo)
+{
+    if(Larray[indexOfSubArrayOne]<=Rarry[indexOfSubArrayTwo])
     {
-        //cout<<"I'm in sort loop"<<endl;
-        if(indx1==ar1)
-        {
-             arr[i]=subArr2[indx2++];
-        }
-        else if(indx2==ar2+1)
-        {
-             arr[i]=subArr1[indx1++];
-        }
-        else if(subArr1[indx1]<subArr2[indx2])
-        {
-            arr[i]=subArr1[indx1++];
-        }
-        else
-        {
-            arr[i]=subArr2[indx2++];
-        }
+        arr[indexOfMergedArray]=Larray[indexOfSubArrayOne];
+        indexOfSubArrayOne++;
     }
-    printArray(subArr1,ar1);
-    printArray(subArr2,ar2);
+    else
+    {
+        arr[indexOfMergedArray]=Rarry[indexOfSubArrayTwo];
+        indexOfSubArrayTwo++;
+    }
+    indexOfMergedArray++;
+}
+while(indexOfSubArrayOne<subArrayOne)
+{
+    arr[indexOfMergedArray]=Larray[indexOfSubArrayOne];
+    indexOfMergedArray++;
+    indexOfSubArrayOne++;
+}
+while(indexOfSubArrayTwo<subArrayTwo)
+{
+    arr[indexOfMergedArray]=Rarry[indexOfSubArrayTwo];
+    indexOfMergedArray++;
+    indexOfSubArrayTwo++;
+}
+delete [] Larray;
+delete [] Rarry;
+
 }
 void printArray(int arr[],int sz)
 {
-    cout<<endl;
     for(int i=0;i<sz;i++)
     {
         cout<<arr[i]<<" ";
     }
+    cout<<endl;
 }
