@@ -1,13 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-void bubbleSort(int arr[]);
-void insertionSort(int arr[]);
-void selectionSort(int arr[]);
+void bubbleSort(int arr[],long long int *SwapCount);
+void insertionSort(int arr[], long long int *SwapCount);
+void selectionSort(int arr[], long long int *SwapCount);
 void MergeSort(int arr[],int begin,int end);
 void Merge(int arr[],int left,int mid,int right);
 void printArray(int arr[]);
 
-#define size 200000
+#define size 100000
+//#define size 150000
+//#define size 200000
 int main()
 {
     clock_t start_t,end_t;
@@ -18,31 +20,38 @@ int main()
         array[i]=rand()%1000;
     }
     
+    long long int bubbleSortNoOfSwap=0;
     start_t=clock();
-    //bubbleSort(array);
+   // bubbleSort(array,&bubbleSortNoOfSwap);
     end_t=clock();
     cout<<"Time required for Bubble Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
+    cout<<"No of sawping Required For Bubble Sort: "<<bubbleSortNoOfSwap<<"\n\n";
     
+    long long int insertionSortNoOfSwap=0;
     start_t=clock();
-    //insertionSort(array);
+    //insertionSort(array, &insertionSortNoOfSwap);
     end_t=clock();
     cout<<"Time required for Insertion Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
+    cout<<"No of sawping Required For insertion Sort: "<<insertionSortNoOfSwap<<"\n\n";
 
+    long long int selectionSortNoOfSwap=0;
     start_t=clock();
-    //selectionSort(array);
+    //selectionSort(array,&selectionSortNoOfSwap);
     end_t=clock();
     cout<<"Time required for Selection Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
+    cout<<"No of sawping Required For Selection Sort: "<<selectionSortNoOfSwap<<"\n\n";
 
     start_t=clock();
     MergeSort(array,0,size-1);
     end_t=clock();
     cout<<"Time required for Merge Sort: "<<(double)(end_t-start_t)/CLOCKS_PER_SEC<<" s\n";
-
+    
    // printArray(array);
 }
 //User Define Function.
-void bubbleSort(int arr[])
+void bubbleSort(int arr[], long long int *SwapCount)
 {
+    int b=*SwapCount;
     for(int i=0;i<size;i++)
     {
         bool sorted=true;
@@ -50,6 +59,7 @@ void bubbleSort(int arr[])
         {
             if(arr[j+1]<arr[j])
             {
+                *SwapCount=*SwapCount+1;
                 swap(arr[j],arr[j+1]);
                 sorted=false;
             }
@@ -58,7 +68,7 @@ void bubbleSort(int arr[])
         break;
     }
 }
-void insertionSort(int arr[])
+void insertionSort(int arr[], long long int *SwapCount)
 {
     for(int i=1;i<size;i++)
     {
@@ -67,6 +77,7 @@ void insertionSort(int arr[])
         {
             if(arr[indx]<arr[indx-1])
             {
+                *SwapCount=*SwapCount+1;
                 swap(arr[indx],arr[indx-1]);
                 indx--;
             }
@@ -75,7 +86,7 @@ void insertionSort(int arr[])
         }
     }
 }
-void selectionSort(int arr[])
+void selectionSort(int arr[], long long int *SwapCount)
 {   
     for(int i=0;i<size;i++)
     {
@@ -94,6 +105,7 @@ void selectionSort(int arr[])
         if(flag)
         {
             swap(arr[i],arr[min_index]);
+            *SwapCount=*SwapCount+1;
         }
     }
 }
