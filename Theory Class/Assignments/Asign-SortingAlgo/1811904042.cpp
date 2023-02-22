@@ -20,6 +20,7 @@ int main()
     {
         array[i]=rand()%1000;
     }
+   cout<<endl<<endl;
 
     int temp1[size];
     ArrayDataCopy(array,temp1);
