@@ -62,4 +62,4 @@ vector<int>Searching(vector<int>a, int target)
     res.push_back(last_index);
     return res;
 
-}
+} 
