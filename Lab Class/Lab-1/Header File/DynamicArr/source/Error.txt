@@ -1,0 +1,3 @@
+main.cpp:1:10: fatal error: 'dynarr.h' file not found
+#include "dynarr.h" 
+         ^~~~~~~~~~
