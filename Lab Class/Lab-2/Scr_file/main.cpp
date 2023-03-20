@@ -6,4 +6,5 @@ using namespace std;
 int main()
 {
     cout<<sum(4,3)<<endl;
+    cout<<"hello";
 }
