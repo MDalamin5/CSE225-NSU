@@ -1,0 +1,14 @@
+Initial array: 6 5 3 4 2 1
+Pass 1:
+  Find the minimum element between index 0 and 5 (inclusive), swap it with the element at index 0: 1 5 3 4 2 6 (1 exchange)
+Pass 2:
+  Find the minimum element between index 1 and 5 (inclusive), swap it with the element at index 1: 1 2 3 4 5 6 (2 exchanges)
+Pass 3:
+  Find the minimum element between index 2 and 5 (inclusive), swap it with the element at index 2: 1 2 3 4 5 6 (2 exchanges)
+Pass 4:
+  Find the minimum element between index 3 and 5 (inclusive), swap it with the element at index 3: 1 2 3 4 5 6 (2 exchanges)
+Pass 5:
+  Find the minimum element between index 4 and 5 (inclusive), swap it with the element at index 4: 1 2 3 4 5 6 (2 exchanges)
+
+The array is now sorted in ascending order.
+Therefore, the number of exchange operations performed to sort the array based on Selection Sort is 2.
