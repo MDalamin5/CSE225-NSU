@@ -1,4 +1,7 @@
 #include "sortedtype.h"
+#include <iomanip>
+#include<bits/stdc++.h>
+using namespace std;
 template <class ItemType>
 SortedType<ItemType>::SortedType()
 {
@@ -89,3 +92,22 @@ void SortedType<ItemType>::RetrieveItem(ItemType &item, bool &found)
         }
     }
 }
+class timeStamp
+{
+public:
+    int seconds;
+    int minutes;
+    int hours;
+    timeStamp(int seconds, int minutes, int hours)
+    {
+        this->seconds = seconds;
+        this->minutes = minutes;
+        this->hours = hours;
+    }
+    void print() 
+    {
+        cout << setfill('0') << setw(2) << hours << ":"
+             << setfill('0') << setw(2) << minutes << ":"
+             << setfill('0') << setw(2) << seconds << endl;
+    }
+};
