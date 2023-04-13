@@ -1,32 +1,4 @@
-/*
- Task:
- Generate the driver file (main.cpp) where you perform the following tasks. Note that you cannot make any change to the
- header file or the source file.
 
- Operations to be performed:
-    • Create a list of integers.
-    • Print length of the list.
-    • Insert five items.
-    • Print the list.
-    • Retrieve 6 and print whether found or not.
-    • Retrieve 5 and print whether found or not.
-    • Print if the list is full or not.
-    • Delete 1.
-    • Print the list.
-    • Print if the list is full or not.
-
-    •  Write a class "timeStamp" that represents a time of the day. It must have variables to store the number of seconds,
-     minutes and hours passed. It also must have a function to print all the values. You will also need to overload a few
-     operators.
-        • Create a list of objects of class "timeStamp".
-        • Insert 5 time values in the format ssmmhh.
-        • Delete the timestamp "25  36  17".
-        • Print the list.
-
-
- Note:
- Helper functions are created to avoid code duplication. You can use them, or you can write your own.
-*/
 
 #include <iostream>
 #include "sortedtype.cpp"

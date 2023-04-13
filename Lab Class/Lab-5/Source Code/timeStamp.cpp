@@ -1,5 +1,5 @@
 #include "timeStamp.h"
-#include<bits/stdc++.h>
+//#include<bits/stdc++.h>
 
 timeStamp::timeStamp() {
     this->s = 0;
