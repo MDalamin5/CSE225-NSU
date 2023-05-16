@@ -1,5 +1,6 @@
 #include "complex.h"
 #include <iostream>
+
 using namespace std;
 Complex::Complex()
 {
@@ -16,6 +17,22 @@ Complex Complex::operator+(Complex a)
     Complex t;
     t.Real = Real + a.Real;
     t.Imaginary = Imaginary + a.Imaginary;
+    return t;
+}
+bool Complex :: operator!=(Complex a)
+{
+   if(Real!=a.Real && Imaginary != a.Imaginary)
+   {
+    return true;
+   }
+   else
+   return false;
+}
+Complex Complex :: operator*(Complex a)
+{
+    Complex t;
+    t.Real = Real*a.Real;
+    t.Imaginary = Imaginary * a.Imaginary;
     return t;
 }
 void Complex::Print()

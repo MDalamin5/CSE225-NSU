@@ -7,6 +7,8 @@ public:
     Complex(double, double);
     Complex operator+(Complex);
     void Print();
+    bool operator !=(Complex);
+    Complex operator *(Complex);
 
 private:
     double Real, Imaginary;
