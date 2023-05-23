@@ -20,11 +20,21 @@ Node *root = NULL;
 
 void inorder(Node *node)
 {
+    /*
     if (node->left != NULL)
         inorder(node->left);
     cout << node->key << " ";
     if (node->right != NULL)
         inorder(node->right);
+    */
+   if(node==NULL)
+   return;
+   
+   inorder(node->left);
+   
+   inorder(node->right);
+   cout<<node->key<<" ";
+    
 }
 bool search(Node *node, int key)
 {
