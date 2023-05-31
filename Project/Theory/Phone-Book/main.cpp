@@ -147,63 +147,11 @@ public:
     }
     void searchByContactID()
     {
-        int con_id;
-        cout << "Enter Contact id: ";
-        cin >> con_id;
-        bool flag = false;
-        node *a = head;
-        while (a != NULL)
-        {
-            if (a->contact_id == con_id)
-            {
-                flag = true;
-                break;
-            }
-            a = a->next;
-        }
-        if (flag)
-        {
-            cout << "Your contac found and name is: " << a->name << endl;
-        }
-        else
-        {
-            cout << "Contact is not found" << endl;
-        }
+        cout<<"Loading......."<<endl;
     }
     void searchByPhoneNo()
     {
-        string src_ph_no;
-        cout << "Please Enter the Phone Number: ";
-        fflush(stdin);
-        getline(cin, src_ph_no);
-
-        node *a = head;
-        bool flag;
-        while (a != NULL)
-        {
-            flag = true;
-            for (int i = 0; i < src_ph_no.length(); i++)
-            {
-                if (src_ph_no[i] != a->phone_no[i])
-                {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag)
-            {
-                break;
-            }
-            a = a->next;
-        }
-        if (flag)
-        {
-            cout << "Name Found ok" << endl;
-        }
-        else
-        {
-            cout << "Sorry! Name Not Found" << endl;
-        }
+        cout<<"Loading......."<<endl;
     }
     // contact search method end
 
@@ -267,129 +215,13 @@ public:
 
     void eraseSrcByName()
     {
-         string src_name;
-        cout << "Please Enter the name: ";
-        fflush(stdin);
-        getline(cin, src_name);
-
-    if(size==0)
-    {
-        cout<<"No data in your file"<<endl;
-        return;
-    }
-
-        int cur_indx=0;
-        node *a = head;
-        bool flag;
-        while (a != NULL)
-        {
-            flag = true;
-            for (int i = 0; i < src_name.length(); i++)
-            {
-                if (src_name[i] != a->name[i])
-                {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag)
-            {
-                break;
-            }
-            a = a->next;
-            cur_indx++;
-        }
-        cout<<cur_indx<<endl;
-        if (flag)
-        {
-            cout<<endl;
-            //cout << "Name Found " << endl;
-        }
-        else
-        {
-            cout << "Sorry! Name Not Found";
-            return;
-        }
-
-        if(cur_indx==0)
-        {
-            eraseFromHead();
-            return;
-        }
-        int count_index=0;
-        node *prev=head;
-        while(count_index!=cur_indx-1)
-        {
-            prev=prev->next;
-        }
-
-            prev->next=a->next;
-            size--;
-            delete a;
+         cout<<"Loading......."<<endl;
     } 
 
     //delete by phonenumber
     void eraseSrcByPhoneNumber()
     {
-        string src_PhNO;
-        cout << "Please Enter the Phone_Number: ";
-        fflush(stdin);
-        getline(cin, src_PhNO);
-
-    if(size==0)
-    {
-        cout<<"No data in your file"<<endl;
-        return;
-    }
-
-        int cur_indx=0;
-        node *a = head;
-        bool flag;
-        while (a != NULL)
-        {
-            flag = true;
-            for (int i = 0; i < src_PhNO.length(); i++)
-            {
-                if (src_PhNO[i] != a->phone_no[i])
-                {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag)
-            {
-                break;
-            }
-            a = a->next;
-            cur_indx++;
-        }
-        cout<<cur_indx<<endl;
-        if (flag)
-        {
-            cout<<endl;
-            //cout << "Name Found " << endl;
-        }
-        else
-        {
-            cout << "Sorry! Name Not Found";
-            return;
-        }
-
-        if(cur_indx==0)
-        {
-            eraseFromHead();
-            return;
-        }
-        int count_index=0;
-        node *prev=head;
-        while(count_index!=cur_indx-1)
-        {
-            prev=prev->next;
-        }
-
-            prev->next=a->next;
-            size--;
-            delete a;
+        cout<<"Loading......."<<endl;
     }
     // delete method end
 
@@ -398,11 +230,7 @@ public:
     {
         cout<<endl<<endl<<"Note: You have to Know The contact name which you want to modify"<<endl<<endl;
 
-        string mod_name;
-        eraseSrcByName();
-        cout<<endl<<"Enter new contact information: "<<endl;
-        addNewContact();
-        cout<<"Modify sussfully"<<endl;
+       cout<<"Loading......."<<endl;
     }
     // contack modeify Method end
 
