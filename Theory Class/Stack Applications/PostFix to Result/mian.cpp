@@ -5,6 +5,7 @@ int getMyResult(string str);
 int main()
 {
     string inp;
+    cout<<"Enter Your Math Equation: ";
     cin >> inp;
     string ans = "";
     stack<char> stk;
@@ -43,7 +44,7 @@ int main()
         ans += stk.top();
         stk.pop();
     }
-    // cout<<ans<<endl;
+     cout<<"Infix to post-fix: "<<":"<< ans<<endl;
     cout << getMyResult(ans) << endl;
 }
 int prece(char ch)
